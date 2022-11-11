@@ -1,23 +1,32 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
 import { Helmet } from 'react-helmet-async';
-import { useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
+import useIsMountedRef from 'use-is-mounted-ref';
+ 
 // @mui
 import {
   Card,
   Table,
   Stack,
+  Paper,
+  Avatar,
+  Button,
+  Popover,
+  Checkbox,
   TableRow,
- 
+  MenuItem,
   TableBody,
   TableCell,
   Container,
   Typography,
- 
+  IconButton,
   TableContainer,
   TablePagination,
 } from '@mui/material';
 // components
 import AddUser from 'src/popups/AddUser';
+import call from '../core/services/http/index';
 import Scrollbar from '../components/scrollbar';
 // sections
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
@@ -30,7 +39,6 @@ const TABLE_HEAD = [
   { id: 'firstName', label: 'First Name', alignRight: false },
   { id: 'lastName', label: 'Last Name', alignRight: false },
   { id: 'username', label: 'Username', alignRight: false },
-  { id: 'emailAddress', label: 'Email Address', alignRight: false },
   { id: '' },
 ];
 
@@ -40,7 +48,7 @@ const TABLE_HEAD = [
 
 export default function UserPage() {
  
-
+  const isMountedRef=useIsMountedRef()
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -53,6 +61,8 @@ export default function UserPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+  const [users, setUsers] = useState([])
+
  
 
   const handleRequestSort = (event, property) => {
@@ -62,7 +72,21 @@ export default function UserPage() {
   };
  
 
- 
+ const getUsers = useCallback(async () =>{
+  if (isMountedRef.current) {
+    await call("get","get-users")
+    .then(res=>{
+      setUsers(res.data)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
+ },[isMountedRef])
+
+ useEffect(()=>{
+  getUsers()
+ },[getUsers])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -77,6 +101,8 @@ export default function UserPage() {
     setPage(0);
     setFilterName(event.target.value);
   };
+
+  
 
    
 
@@ -109,13 +135,53 @@ export default function UserPage() {
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                 />
-                <TableBody>
-              
-                    <TableRow>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-               
-                </TableBody>
+         
+         <TableBody>
+    {users?.map((row,index) => {
+        const { id, first_name, last_name,username } = row;
+
+        return (
+            <TableRow
+                hover
+                key={id}
+                tabIndex={-1}
+            >
+                <TableCell component="th" scope="row">
+                    <Typography variant="caption" noWrap>
+                        {index+1}
+                    </Typography>
+                </TableCell>
+                <TableCell width={'20%'} component="th" scope="row">
+                    <Typography variant="caption" >
+                        {first_name}
+                    </Typography>
+                </TableCell>
+
+                <TableCell component="th" scope="row">
+                    <Typography variant="caption" noWrap>
+                        {last_name}
+                    </Typography>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                    <Typography variant="caption" noWrap>
+                        {username}
+                    </Typography>
+                </TableCell>
+            </TableRow>
+        );
+    })}
+    {/* {emptyRows > 0 && (
+        <TableRow style={{ height: 53 * emptyRows }}>
+            <TableCell colSpan={6} />
+        </TableRow>
+    )} */}
+</TableBody>
+
+
+
+
+
+
 
               </Table>
             </TableContainer>

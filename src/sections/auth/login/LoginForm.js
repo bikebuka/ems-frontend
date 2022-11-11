@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 // @mui
 import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import useIsMountedRef from 'use-is-mounted-ref';
+import AuthService from '../../../utils/AuthService';
 import call from '../../../core/services/http';
 // components
 import Iconify from '../../../components/iconify';
- 
  
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm(props) {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate=useNavigate();
+  const isMountedRef=useIsMountedRef()
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,16 +27,18 @@ export default function LoginForm(props) {
   })
   
 
- 
-
   // handle button click of login form
   const handleLogin = () => {
     setError(null);
     setLoading(true);
   call("post", 'login' , payload)
-  .then(res =>{console.log(res)}).catch(err => { 
+  .then(res =>{
+    AuthService.login(res.data.token.access,{})
+    navigate("/")
+  })
+    // navigate('/',{replace:true})})
+  .catch(err => { 
     console.log(err.response.data)})
-    
   }
  
   return (

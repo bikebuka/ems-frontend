@@ -4,9 +4,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
 import { Stack, IconButton, InputAdornment, TextField } from '@mui/material';
+import call from '../core/services/http/index';
 import Iconify from '../components/iconify';
+ 
  
 // components
  
@@ -27,9 +28,36 @@ export default function AddUser() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-const [showPassword, setShowPassword] = useState(false);
+  const [payload,setPayload] = useState({
+    first_name:'',
+    last_name:'',
+    username:'',
+    email:'',
+    password:'',
+    password2:''
 
+  })
+
+  // handle save button
+  const handleSaveNewUser = () => {
+    setOpen(false)
+    setError(null);
+    setLoading(true);
+    call("post", 'registerusers', payload)
+    .then(res=>{console.log(res)}).catch(err => {
+      console.log(err.response.data)
+
+    })
+  }
+
+
+ 
+     
+  
  
   return (
     <div>
@@ -48,15 +76,35 @@ const [showPassword, setShowPassword] = useState(false);
             Add New User
           </Typography>
           <Stack spacing={3}>
-        <TextField name="firstName" label="First Name" />
-        <TextField name="lastName" label="Last Name" />
-        <TextField name="username" label="Username" />
-        <TextField name="emailAddress" label="Email Address" />
+        <TextField
+         value={payload.first_name}
+         onChange = {(e)=>setPayload({...payload,first_name:e.target.value})}
+         label="First Name" 
+           />
+           
+          <TextField
+          value={payload.last_name}
+          onChange = {(e)=>setPayload({...payload,last_name:e.target.value})}
+          label="Last Name" 
+                    />
+
+          <TextField
+          value={payload.username}
+          onChange = {(e)=>setPayload({...payload,username:e.target.value})}
+          label="Username" 
+                    />
+          <TextField
+          value={payload.email}
+          onChange = {(e)=>setPayload({...payload,email:e.target.value})}
+          label="Email" 
+                    />
+       
 
         <TextField
-          name="password"
-          label="Password"
+          value={payload.password}
+          onChange = {(e)=>setPayload({...payload,password:e.target.value})}
           type={showPassword ? 'text' : 'password'}
+          label="Password"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -68,7 +116,29 @@ const [showPassword, setShowPassword] = useState(false);
             ),
           }}
         />
-        <Button variant="contained">Save</Button>
+
+      <TextField
+          value={payload.password2}
+          onChange = {(e)=>setPayload({...payload,password2:e.target.value})}
+          type={showPassword ? 'text' : 'password'}
+          label="Cornfirm Password"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                </IconButton>
+              </InputAdornment>
+
+            ),
+          }}
+        />
+
+
+      {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+      <Button fullWidth size="large" type="submit" variant="contained" value={loading ? 'Loading...' : 'Login'} onClick={handleSaveNewUser} disabled={loading}>
+        Save User
+      </Button>
         <Button variant="contained"  onClick={handleClose} color='error'>Cancel</Button>
       </Stack>
         </Box>

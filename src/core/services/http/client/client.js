@@ -21,14 +21,7 @@ const client = axios.create(config);
  * @description Add auth tokens to every outgoing requests.
  * @param {*} config
  */
-const authInterceptor = config => {
-    // if (AuthService.check())
-    // {
-    //     config.headers.Authorization = `Bearer ${AuthService.token}`;
-    // }
-    // config.headers.common.Accept = "Application/json";
-    return config;
-};
+const authInterceptor = config => config;
 
 /**
  * Logger interceptors

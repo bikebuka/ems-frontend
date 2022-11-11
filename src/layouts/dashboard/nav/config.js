@@ -21,6 +21,14 @@ const navConfig = [
     path: '/dashboard/departments',
     icon: icon('ic_user'),
   },
+
+  {
+    title: 'Add Roles',
+    path: '/dashboard/departments',
+    icon: icon('ic_user'),
+  },
+  
+  
   {
     title: 'Add User',
     path: '/dashboard/user',
@@ -32,11 +40,11 @@ const navConfig = [
     path: '/dashboard/chart-of-accounts',
     icon: icon('ic_user'),
   },
-  {
-    title: 'Login',
-    path: '/login',
-    icon: icon('ic_user'),
-  },
+  // {
+  //   title: 'Login',
+  //   path: '/login',
+  //   icon: icon('ic_user'),
+  // },
  
  
 ];

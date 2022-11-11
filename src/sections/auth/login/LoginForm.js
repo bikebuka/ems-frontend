@@ -8,68 +8,46 @@ import { LoadingButton } from '@mui/lab';
 import call from '../../../core/services/http';
 // components
 import Iconify from '../../../components/iconify';
-// eslint-disable-next-line import/no-unresolved, import/extensions, import/no-absolute-path
-import { setUserSession } from '../../../utils/Common';
+ 
  
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm(props) {
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const username = useFormInput('');
-  const password = useFormInput('');
   const [error, setError] = useState(null);
 
-
+  const [payload,setPayload] = useState({
+    username:'',
+    password:''
+  })
   
 
-  //  // handle button click of login form
-  //  const handleLogin = () => {
-  //   props.history.push('/dashboard');
-  // }
  
+
   // handle button click of login form
   const handleLogin = () => {
     setError(null);
     setLoading(true);
-    const headers = {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'X-Auth-Token': '97e0d315477f435489cf04904c9d0e6co',
-    };
-    const payload={
-      username,
-      password
-    }
-
-  call("post", 'login' , {payload})
+  call("post", 'login' , payload)
   .then(res =>{console.log(res)}).catch(err => { 
     console.log(err.response.data)})
-    // call("post",'login',{payload})
-    // .then(res=>{
-    //   console.log(res)
-    // })
-    // .then(err=>{
-    //   console.log(err.response.data)
-    // })
+    
   }
  
-
-  // const handleClick = () => {
-  //   navigate('/dashboard', { replace: true });
-  // };
-
   return (
     <>
       <Stack spacing={3}>
-        <TextField   {...username} label="Username" />
+        <TextField    value={payload.username}
+          onChange = {(e)=>setPayload({...payload,username:e.target.value})} label="Username" />
 
         <TextField
           label="Password"
-          {...password}
+          // {...password}
+          value={payload.password}
+          onChange = {(e)=>setPayload({...payload,password:e.target.value})}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (

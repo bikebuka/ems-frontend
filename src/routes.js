@@ -11,6 +11,7 @@ import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import DepartmentsPage from './pages/DepartmentsPage';
 import RolePage from './pages/RolePage';
+import StaffPage from './pages/StaffPage';
 import Otp from './pages/Otp';
 
 // ----------------------------------------------------------------------
@@ -28,6 +29,7 @@ export default function Router() {
         { path: 'blog', element: <BlogPage /> },
         { path: 'departments', element: <DepartmentsPage /> },
         { path: 'roles', element: <RolePage /> },
+        { path: 'staff', element: <StaffPage /> },
       ],
     },
     {

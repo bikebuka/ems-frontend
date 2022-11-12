@@ -20,7 +20,7 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
-import AddDepartments from 'src/popups/AddDepartments';
+import AddStuff from 'src/popups/AddStuff';
 import call from '../core/services/http/index';
 import Scrollbar from '../components/scrollbar';
 // sections
@@ -32,8 +32,11 @@ import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'departmenteName', label: 'Department Name', alignRight: false },
-  { id: 'departmentDescription', label: 'Department Description', alignRight: false },
+//   { id: 'staffId', label: 'Stuff Name', alignRight: false },
+//   { id: 'userId', label: 'User', alignRight: false },
+  { id: 'roleId', label: 'Role', alignRight: false },
+  { id: 'depertmentId', label: 'Deparment', alignRight: false },
+  { id: 'staffDescription', label: 'Stuff Deparment', alignRight: false },
   { id: '' },
 ];
 
@@ -41,7 +44,7 @@ const TABLE_HEAD = [
 
  
 
-export default function DepartmentPage() {
+export default function RolePage() {
  
   const isMountedRef=useIsMountedRef()
   const [page, setPage] = useState(0);
@@ -56,7 +59,7 @@ export default function DepartmentPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const [departments, setDepartments] = useState([])
+  const [stuffs, setStuffs] = useState([])
 
  
 
@@ -67,11 +70,11 @@ export default function DepartmentPage() {
   };
  
 
- const getDepartments = useCallback(async () =>{
+ const getStuffs = useCallback(async () =>{
   if (isMountedRef.current) {
-    await call("get","getdepertment/")
+    await call("get","getrole/")
     .then(res=>{
-      setDepartments(res.data)
+    setStuffs(res.data)
     })
     .catch(err=>{
       console.log(err)
@@ -80,8 +83,8 @@ export default function DepartmentPage() {
  },[isMountedRef])
 
  useEffect(()=>{
-  getDepartments()
- },[getDepartments])
+  getStuffs()
+ },[getStuffs])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -100,15 +103,15 @@ export default function DepartmentPage() {
   return (
     <>
       <Helmet>
-        <title> Add Department | County crm </title>
+        <title> Add Stuff | County crm </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Department
+            Stuffs
           </Typography>
-            <AddDepartments/>
+            <AddStuff/>
         </Stack>
 
         <Card>
@@ -128,8 +131,8 @@ export default function DepartmentPage() {
                 />
          
          <TableBody>
-    {departments?.map((row,index) => {
-        const { id, depertment_name, depertment_description } = row;
+    {stuffs?.map((row,index) => {
+        const { id, role_id, depertment_id, staff_description } = row;
 
         return (
             <TableRow
@@ -144,13 +147,19 @@ export default function DepartmentPage() {
                 </TableCell>
                 <TableCell width={'20%'} component="th" scope="row">
                     <Typography variant="caption" >
-                        {depertment_name}
+                        {role_id}
                     </Typography>
                 </TableCell>
 
                 <TableCell component="th" scope="row">
                     <Typography variant="caption" noWrap>
-                        {depertment_description}
+                        {depertment_id}
+                    </Typography>
+                </TableCell>
+
+                <TableCell component="th" scope="row">
+                    <Typography variant="caption" noWrap>
+                        {staff_description}
                     </Typography>
                 </TableCell>
                 {/* <TableCell component="th" scope="row">

@@ -36,6 +36,12 @@ const navConfig = [
   },
 
   {
+    title: 'Add Staff',
+    path: '/dashboard/staff',
+    icon: icon('ic_user'),
+  },
+
+  {
     title: 'Chart of Accounts',
     path: '/dashboard/chart-of-accounts',
     icon: icon('ic_user'),

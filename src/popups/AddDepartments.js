@@ -48,8 +48,6 @@ export default function AddDepartments() {
 }
 
  
-
- 
   return (
     <div>
         <Button variant="contained" onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
@@ -76,7 +74,7 @@ export default function AddDepartments() {
       <TextField
         value={payload. depertment_description}
         onChange = {(e)=>setPayload({...payload,depertment_description:e.target.value})}
-        label="Department Name"
+        label="Description"
           />
          
         

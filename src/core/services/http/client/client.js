@@ -1,11 +1,11 @@
 import axios from "axios";
 import { apiBaseUrl } from "../../../environment/environment";
-// import AuthService from "../../../../shared/auth/AuthService";
+import AuthService from "../../../../utils/AuthService";
+
 /**
  * Axios basic configuration
  */
-console.log(apiBaseUrl)
-const config = {
+ const config = {
     baseURL: apiBaseUrl
 };
 
@@ -22,10 +22,10 @@ const client = axios.create(config);
  * @param {*} config
  */
 const authInterceptor = config => {
-    // if (AuthService.check())
-    // {
-    //     config.headers.Authorization = `Bearer ${AuthService.token}`;
-    // }
+    if (AuthService.check())
+    {
+        config.headers.Authorization = `Bearer ${AuthService.token}`;
+    }
     // config.headers.common.Accept = "Application/json";
     return config;
 };
@@ -47,9 +47,9 @@ client.interceptors.request.use(loggerInterceptor);
 client.interceptors.response.use(
     response => Promise.resolve(response),
     error => {
-        // if (error.response.status === 401) {
-        //     AuthService.logout()
-        // }
+        if (error.response.status === 401) {
+            AuthService.logout()
+        }
         throw error;
     }
 );

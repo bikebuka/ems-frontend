@@ -20,20 +20,20 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
-import AddDepartments from 'src/popups/AddDepartments';
+import AddRoles from 'src/popups/AddRoles';
 import call from '../core/services/http/index';
 import Scrollbar from '../components/scrollbar';
 // sections
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
- 
  
 
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'departmenteName', label: 'Department Name', alignRight: false },
-  { id: 'departmentDescription', label: 'Department Description', alignRight: false },
+  { id: 'roleName', label: 'Role Name', alignRight: false },
+  { id: 'description', label: 'Description', alignRight: false },
+  { id: 'status', label: 'Status', alignRight: false },
   { id: '' },
 ];
 
@@ -41,7 +41,7 @@ const TABLE_HEAD = [
 
  
 
-export default function DepartmentPage() {
+export default function RolePage() {
  
   const isMountedRef=useIsMountedRef()
   const [page, setPage] = useState(0);
@@ -56,7 +56,7 @@ export default function DepartmentPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const [departments, setDepartments] = useState([])
+  const [roles, setRoles] = useState([])
 
  
 
@@ -67,11 +67,11 @@ export default function DepartmentPage() {
   };
  
 
- const getDepartments = useCallback(async () =>{
+ const getRoles = useCallback(async () =>{
   if (isMountedRef.current) {
-    await call("get","getdepertment/")
+    await call("get","getrole/")
     .then(res=>{
-      setDepartments(res.data)
+      setRoles(res.data)
     })
     .catch(err=>{
       console.log(err)
@@ -80,8 +80,8 @@ export default function DepartmentPage() {
  },[isMountedRef])
 
  useEffect(()=>{
-  getDepartments()
- },[getDepartments])
+  getRoles()
+ },[getRoles])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -100,15 +100,15 @@ export default function DepartmentPage() {
   return (
     <>
       <Helmet>
-        <title> Add Department | County crm </title>
+        <title> Add Role | County crm </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Department
+            Roles
           </Typography>
-            <AddDepartments/>
+            <AddRoles/>
         </Stack>
 
         <Card>
@@ -128,8 +128,8 @@ export default function DepartmentPage() {
                 />
          
          <TableBody>
-    {departments?.map((row,index) => {
-        const { id, depertment_name, depertment_description } = row;
+    {roles?.map((row,index) => {
+        const { id, role_name, role_description } = row;
 
         return (
             <TableRow
@@ -144,13 +144,13 @@ export default function DepartmentPage() {
                 </TableCell>
                 <TableCell width={'20%'} component="th" scope="row">
                     <Typography variant="caption" >
-                        {depertment_name}
+                        {role_name}
                     </Typography>
                 </TableCell>
 
                 <TableCell component="th" scope="row">
                     <Typography variant="caption" noWrap>
-                        {depertment_description}
+                        {role_description}
                     </Typography>
                 </TableCell>
                 {/* <TableCell component="th" scope="row">

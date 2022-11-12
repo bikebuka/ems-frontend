@@ -24,7 +24,7 @@ const navConfig = [
 
   {
     title: 'Add Roles',
-    path: '/dashboard/departments',
+    path: '/dashboard/roles',
     icon: icon('ic_user'),
   },
   

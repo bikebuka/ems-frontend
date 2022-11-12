@@ -19,8 +19,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
+  borderRadius:2,
   p: 4,
 };
 
@@ -44,21 +43,17 @@ export default function AddUser() {
 
   // handle save button
   const handleSaveNewUser = () => {
-    setOpen(false)
     setError(null);
     setLoading(true);
     call("post", 'registerusers', payload)
     .then(res=>{console.log(res)}).catch(err => {
       console.log(err.response.data)
-
     })
   }
 
 
  
-     
-  
- 
+    
   return (
     <div>
         <Button variant="contained" onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>

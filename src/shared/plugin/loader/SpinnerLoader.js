@@ -3,7 +3,7 @@ import {Backdrop} from "@mui/material";
 
 export default function () {
     return (
-        <Backdrop open={true}>
+        <Backdrop open={true} sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <RotatingSquare
                 height="100"
                 width="100"

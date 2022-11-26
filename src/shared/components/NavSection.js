@@ -56,11 +56,11 @@ function NavItem({ item, active }) {
   const activeRootStyle = {
     color: 'white',
     fontWeight: 'fontWeightMedium',
-    bgcolor: 'rgb(243, 92, 44)',
+    bgcolor: 'action.warning.main',
   };
 
   const activeSubStyle = {
-    color: 'rgb(243, 92, 44)',
+    color: 'action.warning.main',
     fontWeight: 'fontWeightMedium',
   };
 

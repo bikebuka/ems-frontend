@@ -109,7 +109,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           onClose={onCloseSidebar}
           PaperProps={{
             sx: { width: DRAWER_WIDTH,
-              bgcolor:"action.active",
+              bgcolor:"action.primary.main",
               borderRightStyle: 'dashed', },
           }}
         >
@@ -124,7 +124,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           PaperProps={{
             sx: {
               width: DRAWER_WIDTH,
-              bgcolor:"action.active",
+              bgcolor:"action.primary.main",
               borderRightStyle: 'dashed',
             },
           }}

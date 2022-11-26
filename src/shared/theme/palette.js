@@ -74,7 +74,7 @@ const SUCCESS = {
 const WARNING = {
   lighter: '#FFF7CD',
   light: '#FFE16A',
-  main: '#FFC107',
+  main: '#F3B744',
   dark: '#B78103',
   darker: '#7A4F01',
   contrastText: GREY[800],
@@ -129,6 +129,8 @@ const palette = {
     focus: GREY[500_24],
     hoverOpacity: 0.08,
     disabledOpacity: 0.48,
+    primary: PRIMARY,
+    warning: WARNING
   },
 };
 

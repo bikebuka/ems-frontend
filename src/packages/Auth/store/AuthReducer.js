@@ -10,31 +10,25 @@ const initialState={
     verified:false,
 }
 export default function AuthReducer(state=initialState,action){
-    const {type,payload,message,verifyingOTP,verified,loading,error,submitting,set_password_page,hasSentOTP} = action;
+    const {type,payload,message,loading,error,submitting} = action;
     switch (type) {
         case AUTH_API_REQUEST:
             return {
                 loading,
                 submitting,
-                verifyingOTP
             };
         case AUTH_API_SUCCESS:
             return {
                 loading,
                 payload,
                 submitting,
-                verified,
                 message,
-                hasSentOTP,
-                verifyingOTP,
-                set_password_page
             }
         case AUTH_API_FAILED:
             return {
                 loading,
                 submitting,
                 error,
-                verifyingOTP
             };
         default:
             return state

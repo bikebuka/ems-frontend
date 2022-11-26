@@ -3,17 +3,14 @@ import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import {Card, Container, Link, Stack, Typography} from '@mui/material';
 // hooks
-import { Box } from '@mui/system';
 import useResponsive from '../../../shared/hooks/useResponsive';
 // components
 import Page from '../../../shared/components/Page';
-import Logo from '../../../assets/logo.png';
 // sections
 import { LoginForm } from '../../../shared/components/sections/auth/login';
 import {appName} from "../../../core/environment/environment";
-import {ToastContainer} from "react-toastify";
 import {useSelector} from "react-redux";
-import {verifyOTP} from "../store/AuthActions";
+import {Box} from "@mui/system";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -67,16 +64,6 @@ export default function Login() {
   return (
     <Page title="Login">
       <RootStyle>
-        <HeaderStyle>
-          {mdUp && (
-              <Typography variant="body1" sx={{ mt: { md: -2 } }}>
-                Not sure how it works? {''}
-                <Link variant="subtitle2" target="_blank" href="https://docs.ebiashara.com/">
-                  Read Our Documentation
-                </Link>
-              </Typography>
-          )}
-        </HeaderStyle>
 
         {mdUp && (
             <SectionStyle>
@@ -89,30 +76,23 @@ export default function Login() {
 
         <Container maxWidth="sm">
           <ContentStyle>
-            <img src={require("../../../assets/logo.png")} alt="logo"/>
-            {
-              hasSentOTP ?
-                  <Stack spacing={5} md={{m:"10px"}}>
-                    <h3></h3>
-                  </Stack> :
-                  <>
-                    <Typography variant="h4" gutterBottom>
-                      Sign in to {appName}
+            <SectionStyle justifyItems="center">
+              <Box sx={{m:'auto'}}>
+                <img src={require("../../../assets/logo.png")} alt="logo" width={150} height={150}/>
+              </Box>
+              <Stack spacing={2}>
+                <LoginForm />
+
+                {!smUp && (
+                    <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+                      Don’t have an account?{' '}
+                      <Link variant="subtitle2" component={RouterLink} to="/register">
+                        Get started
+                      </Link>
                     </Typography>
-                    <Typography sx={{ color: 'text.secondary', mb: 5 }}>Enter your details below.</Typography>
-                  </>
-            }
-
-            <LoginForm />
-
-            {!smUp && (
-              <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-                Don’t have an account?{' '}
-                <Link variant="subtitle2" component={RouterLink} to="/register">
-                  Get started
-                </Link>
-              </Typography>
-            )}
+                )}
+              </Stack>
+            </SectionStyle>
           </ContentStyle>
         </Container>
       </RootStyle>

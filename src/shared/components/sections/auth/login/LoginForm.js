@@ -26,6 +26,8 @@ import OTPInput from "otp-input-react";
 import SpinnerLoader from "../../../../plugin/loader/SpinnerLoader";
 import {ToastContainer} from "react-toastify";
 import LockIcon from "@mui/icons-material/Lock";
+import {Box} from "@mui/system";
+import {appName} from "../../../../../core/environment/environment";
 
 // ----------------------------------------------------------------------
 
@@ -157,35 +159,49 @@ export default function LoginForm() {
                         </CardContent>
                     </Card>
                     :
-                    <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-                        <Stack spacing={3}>
-                            <RHFTextField name="username" label="Email Address" />
-                            <RHFTextField
-                                name="password"
-                                label="Password"
-                                type={showPassword ? 'text' : 'password'}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                                                <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                                            </IconButton>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
-                        </Stack>
-                        <Stack  direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-                            <RHFCheckbox name="remember" label="Remember me" />
-                            <Link to="/auth/forgot-password">
-                                Forgot password?
-                            </Link>
-                        </Stack>
+                    <Box sx={{m:2}}>
+                        {
+                            hasSentOTP ?
+                                <Stack spacing={5} md={{m:"10px"}}>
+                                    <h3></h3>
+                                </Stack> :
+                                <Stack>
+                                    <Typography variant="h4" gutterBottom>
+                                        Sign in to {appName}
+                                    </Typography>
+                                    <Typography sx={{ color: 'text.secondary', mb: 5 }}>Your RMS adventure starts now.</Typography>
+                                </Stack>
+                        }
+                        <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+                            <Stack spacing={3}>
+                                <RHFTextField name="username" label="Email Address" />
+                                <RHFTextField
+                                    name="password"
+                                    label="Password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                                                    <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                            </Stack>
+                            <Stack  direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+                                <RHFCheckbox name="remember" label="Remember me" />
+                                <Link to="/auth/forgot-password">
+                                    Forgot password?
+                                </Link>
+                            </Stack>
 
-                        <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={submitting}>
-                            Login
-                        </LoadingButton>
-                    </FormProvider>
+                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={submitting}>
+                                Login
+                            </LoadingButton>
+                        </FormProvider>
+                    </Box>
             }
 
         </div>

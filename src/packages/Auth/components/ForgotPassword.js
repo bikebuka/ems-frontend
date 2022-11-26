@@ -4,7 +4,7 @@ import {Card, Container, Stack, Typography} from '@mui/material';
 // hooks
 import useResponsive from '../../../shared/hooks/useResponsive';
 // components
-import Page from '../../../components/Page';
+import Page from '../../../shared/components/Page';
 // sections
 import {appName} from "../../../core/environment/environment";
 import {useSelector} from "react-redux";

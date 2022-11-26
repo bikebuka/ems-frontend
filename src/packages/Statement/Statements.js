@@ -21,11 +21,11 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
-import Page from '../../components/Page';
-import Label from '../../components/Label';
-import Scrollbar from '../../components/Scrollbar';
-import Iconify from '../../components/Iconify';
-import SearchNotFound from '../../components/SearchNotFound';
+import Page from '../../shared/components/Page';
+import Label from '../../shared/components/Label';
+import Scrollbar from '../../shared/components/Scrollbar';
+import Iconify from '../../shared/components/Iconify';
+import SearchNotFound from '../../shared/components/SearchNotFound';
 import { StatementListHead, StatementListToolbar, StatementMoreMenu } from './index';
 // mock
 import USERLIST from '../../shared/_mock/user';

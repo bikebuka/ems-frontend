@@ -11,8 +11,8 @@ import account from '../../_mock/account';
 import useResponsive from '../../hooks/useResponsive';
 // components
 import Logo from '../../../assets/logo4.png';
-import Scrollbar from '../../../components/Scrollbar';
-import NavSection from '../../../components/NavSection';
+import Scrollbar from '../../components/Scrollbar';
+import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
 import { ucFirst } from '../../utils/formatText';

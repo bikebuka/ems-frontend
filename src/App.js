@@ -1,18 +1,18 @@
 // routes
-import Router from './routes';
+import Router from './routes/routes';
+import 'react-toastify/dist/ReactToastify.css';
 // theme
-import ThemeProvider from './theme';
+import ThemeProvider from './shared/theme';
 // components
-import ScrollToTop from './components/scroll-to-top';
-import { StyledChart } from './components/chart';
-
+import ScrollToTop from './shared/components/ScrollToTop';
+import { BaseOptionChartStyle } from './shared/components/chart/BaseOptionChart';
 // ----------------------------------------------------------------------
 
 export default function App() {
   return (
     <ThemeProvider>
       <ScrollToTop />
-      <StyledChart />
+      <BaseOptionChartStyle />
       <Router />
     </ThemeProvider>
   );

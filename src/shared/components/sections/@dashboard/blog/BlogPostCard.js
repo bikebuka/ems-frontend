@@ -4,8 +4,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
 // utils
-import { fDate } from '../../../../shared/utils/formatTime';
-import { fShortenNumber } from '../../../../shared/utils/formatNumber';
+import { fDate } from '../../../../utils/formatTime';
+import { fShortenNumber } from '../../../../utils/formatNumber';
 //
 import SvgIconStyle from '../../../SvgIconStyle';
 import Iconify from '../../../Iconify';

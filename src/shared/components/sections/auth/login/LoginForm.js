@@ -21,9 +21,9 @@ import { LoadingButton } from '@mui/lab';
 import Iconify from '../../../Iconify';
 import { FormProvider, RHFTextField, RHFCheckbox } from '../../../hook-form';
 import {useDispatch, useSelector} from "react-redux";
-import {login, verifyOTP} from "../../../../packages/Auth/store/AuthActions";
+import {login, verifyOTP} from "../../../../../packages/Auth/store/AuthActions";
 import OTPInput from "otp-input-react";
-import SpinnerLoader from "../../../../shared/plugin/loader/SpinnerLoader";
+import SpinnerLoader from "../../../../plugin/loader/SpinnerLoader";
 import {ToastContainer} from "react-toastify";
 import LockIcon from "@mui/icons-material/Lock";
 

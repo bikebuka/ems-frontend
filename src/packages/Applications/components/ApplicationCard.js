@@ -25,7 +25,7 @@ import {
     Typography
 } from "@mui/material";
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import SpinnerLoader from "../../../shared/plugin/loader/SpinnerLoader";
 import {Theme} from "@mui/material";
 import {styled} from "@mui/material/styles";

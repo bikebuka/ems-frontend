@@ -5,10 +5,10 @@ import { Card, Link, Container, Typography } from '@mui/material';
 // hooks
 import useResponsive from '../../../shared/hooks/useResponsive';
 // components
-import Page from '../../../components/Page';
-import Logo from '../../../components/Logo';
+import Page from '../../../shared/components/Page';
+import Logo from '../../../shared/components/Logo';
 // sections
-import { RegisterForm } from '../../../components/sections/auth/register';
+import { RegisterForm } from '../../../shared/components/sections/auth/register';
 
 // ----------------------------------------------------------------------
 

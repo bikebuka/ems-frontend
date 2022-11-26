@@ -13,8 +13,8 @@ import OTPInput from "otp-input-react";
 import {toast, ToastContainer} from "react-toastify";
 import {resetPassword, setNewPassword, verifyResetOTP} from "../store/AuthActions";
 import SpinnerLoader from "../../../shared/plugin/loader/SpinnerLoader";
-import {FormProvider, RHFCheckbox, RHFTextField} from "../../../components/hook-form";
-import Iconify from "../../../components/Iconify";
+import {FormProvider, RHFCheckbox, RHFTextField} from "../../../shared/components/hook-form";
+import Iconify from "../../../shared/components/Iconify";
 
 // ----------------------------------------------------------------------
 

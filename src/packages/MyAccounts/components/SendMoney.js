@@ -1,4 +1,4 @@
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import {ToastContainer} from "react-toastify";
 import {Box} from "@mui/system";
 import {
@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import {decrypt} from "../../../shared/utils/helpers/helpers";
 import {useNavigate, useParams} from "react-router-dom";
-import {FormProvider, RHFTextField} from "../../../components/hook-form";
+import {FormProvider, RHFTextField} from "../../../shared/components/hook-form";
 import {banks} from "../../../shared/_mock/banks";
 import {useEffect, useState} from "react";
 import {sendMoney} from "../store/AccountAction";

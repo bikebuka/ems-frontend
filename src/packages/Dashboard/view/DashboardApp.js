@@ -13,7 +13,7 @@ import {
     Link,
     Divider, Button
 } from '@mui/material';
-import Page from '../../../components/Page';
+import Page from '../../../shared/components/Page';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import PeopleIcon from '@mui/icons-material/PeopleOutlined';
 import {getStatistics} from "../store/DashboardAction";

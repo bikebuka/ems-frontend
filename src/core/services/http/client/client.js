@@ -1,11 +1,11 @@
 import axios from "axios";
 import { apiBaseUrl } from "../../../environment/environment";
-import AuthService from "../../../../utils/AuthService";
+import AuthService from "../../../access-control/AuthService";
 
 /**
  * Axios basic configuration
  */
- const config = {
+const config = {
     baseURL: apiBaseUrl
 };
 

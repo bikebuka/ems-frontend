@@ -15,13 +15,13 @@ import {getCustomerAccountTransactions, processTopupPayment, topUpAccount} from 
 import {decrypt, formatDate} from "../../../shared/utils/helpers/helpers";
 import SendIcon from '@mui/icons-material/Send';
 import {Box} from "@mui/system";
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import SpinnerLoader from "../../../shared/plugin/loader/SpinnerLoader";
 import {ToastContainer} from "react-toastify";
 //
 import AddCardIcon from '@mui/icons-material/AddCard';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import {FormProvider, RHFTextField} from "../../../components/hook-form";
+import {FormProvider, RHFTextField} from "../../../shared/components/hook-form";
 import MuiPhoneNumber from "material-ui-phone-number";
 import LockIcon from "@mui/icons-material/Lock";
 import OTPInput from "otp-input-react";

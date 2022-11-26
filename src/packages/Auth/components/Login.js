@@ -6,10 +6,10 @@ import {Card, Container, Link, Stack, Typography} from '@mui/material';
 import { Box } from '@mui/system';
 import useResponsive from '../../../shared/hooks/useResponsive';
 // components
-import Page from '../../../components/Page';
+import Page from '../../../shared/components/Page';
 import Logo from '../../../assets/logo.png';
 // sections
-import { LoginForm } from '../../../components/sections/auth/login';
+import { LoginForm } from '../../../shared/components/sections/auth/login';
 import {appName} from "../../../core/environment/environment";
 import {ToastContainer} from "react-toastify";
 import {useSelector} from "react-redux";

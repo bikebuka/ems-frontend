@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { alpha, styled } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
 // utils
-import { fCurrency } from '../../../../shared/utils/formatNumber';
+import { fCurrency } from '../../../../utils/formatNumber';
 // components
 import Iconify from '../../../Iconify';
 

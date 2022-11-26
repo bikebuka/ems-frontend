@@ -1,5 +1,5 @@
 import AuthService from "../../../core/access-control/AuthService";
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import {Box} from "@mui/system";
 import {Card, CardContent, CardHeader, Divider, FormControl, Grid, TextField} from "@mui/material";
 import {formatDate} from "../../../shared/utils/helpers/helpers";

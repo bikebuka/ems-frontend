@@ -1,7 +1,7 @@
 import {Link, useNavigate} from "react-router-dom";
 import Profile from "../components/Profile";
 import {Breadcrumbs, Button, Card, CardContent, CardHeader, Divider, Grid, Typography} from "@mui/material";
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import {Box} from "@mui/system";
 import {ArrowLeft} from "@mui/icons-material";
 

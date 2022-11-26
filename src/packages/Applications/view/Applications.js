@@ -17,7 +17,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StatementListHead} from "../../Statement";
 import {encrypt, formatDate} from "../../../shared/utils/helpers/helpers";
 import {Box} from "@mui/system";
-import Page from "../../../components/Page";
+import Page from "../../../shared/components/Page";
 import {confirmApplication, createApplication, getApplications, getScopes} from "../store/ApplicationAction";
 import {getCustomerAccounts} from "../../MyAccounts/store/AccountAction";
 import {addApplication} from "../service/ApplicationService";

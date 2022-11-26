@@ -47,7 +47,7 @@ client.interceptors.request.use(loggerInterceptor);
 client.interceptors.response.use(
     response => Promise.resolve(response),
     error => {
-        if (error.response.status === 401) {
+        if (AuthService.check() && error.response.status === 401) {
             AuthService.logout()
         }
         throw error;

@@ -9,7 +9,7 @@ const notifySuccess = msg => {
 const notifyError = msg => {
     toast.error(msg)
 }
-export const login = payload => async (dispatch) => {
+export const verifyOTP = payload => async (dispatch) => {
     try {
         dispatch({
             type: AUTH_API_REQUEST,
@@ -45,37 +45,36 @@ export const login = payload => async (dispatch) => {
     }
 }
 // Verify OTP
-export const verifyOTP = payload => async (dispatch) => {
+export const login = payload => async (dispatch) => {
     try {
         dispatch({
             type: AUTH_API_REQUEST,
             loading: true,
             submitting: true,
-            verifyingOTP:true
         });
-        const res = await call("post", AuthConstants.VERIFY_OTP,payload);
-        if (res.data.status) {
+        const res = await call("post", AuthConstants.LOGIN,payload);
+        if (!res.data.error) {
             dispatch({
                 type: AUTH_API_SUCCESS,
-                payload: res.data["customer"],
+                payload: (({ access_token, ...other }) => other)(res.data),
                 loading: false,
                 message: res.data.message,
-                verifyingOTP:false,
-                hasSentOTP:false,
             });
-            dispatch({type: 'set', profile: {}})
+            console.log((({ access_token,expires_in,...other }) => other)(res.data));
+            dispatch({type: 'set', profile: res.data})
             //login
-            AuthService.login(res.data["access"],{})
+            AuthService.login(res.data["access_token"],(({ access_token,expires_in,...other }) => other)(res.data))
             //notify
             notifySuccess(res.data.message)
             //redirect
-            window.location.href="/"
+            setTimeout(()=>{
+                window.location.href="/"
+            },1500)
         } else {
             dispatch({
                 type: AUTH_API_FAILED,
                 payload: res.data,
                 loading: false,
-                verifyingOTP: false
             });
             notifyError(res.data.message)
         }

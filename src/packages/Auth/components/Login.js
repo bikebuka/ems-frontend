@@ -10,6 +10,7 @@ import Page from '../../../shared/components/Page';
 import { LoginForm } from '../../../shared/components/sections/auth/login';
 import {useSelector} from "react-redux";
 import {Box} from "@mui/system";
+import {ToastContainer} from "react-toastify";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -58,11 +59,11 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function Login() {
   const smUp = useResponsive('up', 'sm');
-  const {hasSentOTP} = useSelector(state=> state.AuthReducer)
   const mdUp = useResponsive('up', 'md');
 
   return (
     <Page title="Login">
+      <ToastContainer theme="colored"/>
       <RootStyle>
 
         {mdUp && (

@@ -8,7 +8,6 @@ import useResponsive from '../../../shared/hooks/useResponsive';
 import Page from '../../../shared/components/Page';
 // sections
 import { LoginForm } from '../../../shared/components/sections/auth/login';
-import {appName} from "../../../core/environment/environment";
 import {useSelector} from "react-redux";
 import {Box} from "@mui/system";
 // ----------------------------------------------------------------------
@@ -69,7 +68,7 @@ export default function Login() {
         {mdUp && (
             <SectionStyle>
               <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
-                Revenue Management System
+                Rental Management System
               </Typography>
               <img src={require('../../../assets/images/landing.png')} width={"100%"} height={"60%"} alt="login"/>
             </SectionStyle>
@@ -79,7 +78,7 @@ export default function Login() {
           <ContentStyle>
             <SectionStyle justifyItems="center">
               <Box sx={{m:'auto'}}>
-                <img src={require("../../../assets/logo.png")} alt="logo" width={150} height={150}/>
+                <img src={require("../../../assets/logo.jpeg")} alt="logo" width="50%"/>
               </Box>
               <Stack spacing={2}>
                 <LoginForm />

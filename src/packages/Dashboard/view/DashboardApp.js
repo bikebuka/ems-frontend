@@ -213,13 +213,13 @@ export default function DashboardApp() {
                                                         gutterBottom
                                                         variant="overline"
                                                     >
-                                                        TOTAL ACCOUNTS BALANCE
+                                                        TOTAL BUSINESSES
                                                     </Typography>
                                                     <Typography
                                                         color="textPrimary"
                                                         variant="h4"
                                                     >
-                                                       KES {statistics && statistics['total_accounts_balance']}
+                                                       {statistics && statistics['total_accounts_balance']}
                                                     </Typography>
                                                 </Grid>
                                                 <Grid item>

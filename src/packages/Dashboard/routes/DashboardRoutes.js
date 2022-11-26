@@ -2,8 +2,8 @@ import DashboardLayout from "../../../shared/layouts/dashboard";
 import DashboardApp from "../view/DashboardApp";
 import LogoOnlyLayout from "../../../shared/layouts/LogoOnlyLayout";
 import {Navigate} from "react-router-dom";
-import Page404 from "../../NotFound/Page404";
 import {ProtectedRoute} from "../../../shared/protected";
+import Page404 from "../../../shared/components/NotFound/Page404";
 
 export const DashboardRoutes =[
     {

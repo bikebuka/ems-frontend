@@ -65,8 +65,8 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Box sx={{ width: '80%', height: '80%' }}>
-          <img src={Logo} alt={appName} />
+        <Box sx={{ width: '80%', height: '50%' }}>
+          <img src={Logo} alt={appName}/>
         </Box>
       </Box>
 
@@ -76,7 +76,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: '#fff' }}>
-                {profile && profile["first_name"]} {profile["last_name"]}
+                {profile?.first_name} {profile?.last_name}
               </Typography>
               <Typography variant="body2" sx={{ color: '#fff' }}>
                 {profile && ucFirst(profile?.role?.short_name||'')}
@@ -109,7 +109,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           onClose={onCloseSidebar}
           PaperProps={{
             sx: { width: DRAWER_WIDTH,
-              bgcolor:"#000",
+              bgcolor:"action.active",
               borderRightStyle: 'dashed', },
           }}
         >
@@ -124,7 +124,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           PaperProps={{
             sx: {
               width: DRAWER_WIDTH,
-              bgcolor:"#000",
+              bgcolor:"action.active",
               borderRightStyle: 'dashed',
             },
           }}

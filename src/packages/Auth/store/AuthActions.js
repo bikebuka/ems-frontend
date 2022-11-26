@@ -44,7 +44,7 @@ export const login = payload => async (dispatch) => {
         notifyError(err.response.data.message)
     }
 }
-//
+// Verify OTP
 export const verifyOTP = payload => async (dispatch) => {
     try {
         dispatch({
@@ -63,9 +63,9 @@ export const verifyOTP = payload => async (dispatch) => {
                 verifyingOTP:false,
                 hasSentOTP:false,
             });
-            dispatch({type: 'set', profile: res.data['customer']})
+            dispatch({type: 'set', profile: {}})
             //login
-            AuthService.login(res.data["access_token"],res.data['customer'])
+            AuthService.login(res.data["access"],{})
             //notify
             notifySuccess(res.data.message)
             //redirect

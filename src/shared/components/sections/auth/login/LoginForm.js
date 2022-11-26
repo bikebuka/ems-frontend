@@ -198,9 +198,16 @@ export default function LoginForm() {
                                 </Link>
                             </Stack>
 
-                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={submitting}>
-                                Sign In
-                            </LoadingButton>
+                            {
+                                submitting ?
+                                    <LoadingButton fullWidth size="medium" color="warning" variant="contained">
+                                        Signing in...Please Wait
+                                    </LoadingButton>
+                                :
+                                    <LoadingButton fullWidth size="large" type="submit" variant="contained">
+                                        Sign In
+                                    </LoadingButton>
+                            }
                         </FormProvider>
                     </Box>
             }

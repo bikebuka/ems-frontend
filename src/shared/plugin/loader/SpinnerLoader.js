@@ -1,8 +1,9 @@
 import {RotatingSquare} from "react-loader-spinner";
+import {Backdrop} from "@mui/material";
 
 export default function () {
     return (
-        <div className="d-flex justify-content-center">
+        <Backdrop open={true}>
             <RotatingSquare
                 height="100"
                 width="100"
@@ -13,6 +14,6 @@ export default function () {
                 wrapperClass=""
                 visible={true}
             />
-        </div>
+        </Backdrop>
     )
 }

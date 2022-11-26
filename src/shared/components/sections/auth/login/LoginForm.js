@@ -14,7 +14,7 @@ import {
     CardContent,
     Container,
     CssBaseline,
-    Grid, Avatar, Typography, Paper
+    Grid, Avatar, Typography, Paper, Divider
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
@@ -166,9 +166,10 @@ export default function LoginForm() {
                                     <h3></h3>
                                 </Stack> :
                                 <Stack>
-                                    <Typography variant="h4" gutterBottom>
-                                        Sign in to {appName}
+                                    <Typography variant="h4" gutterBottom sx={{m:'auto'}}>
+                                      -  Sign in to {appName} -
                                     </Typography>
+                                    <Divider/>
                                     <Typography sx={{ color: 'text.secondary', mb: 5 }}>Your RMS adventure starts now.</Typography>
                                 </Stack>
                         }
@@ -198,7 +199,7 @@ export default function LoginForm() {
                             </Stack>
 
                             <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={submitting}>
-                                Login
+                                Sign In
                             </LoadingButton>
                         </FormProvider>
                     </Box>

@@ -38,7 +38,7 @@ Red: ed1c24
 const PRIMARY = {
   lighter: '#D1E9FC',
   light: '#76B0F1',
-  main: '#000',
+  main: '#84B333',
   dark: '#103996',
   darker: '#061B64',
   contrastText: '#fff',

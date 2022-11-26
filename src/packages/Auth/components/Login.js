@@ -42,6 +42,7 @@ const SectionStyle = styled(Card)(({ theme }) => ({
   flexDirection: 'column',
   // justifyContent: 'center',
   margin: theme.spacing(2, 0, 2, 2),
+  backgroundColor:'#FAFAFA'
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -67,10 +68,10 @@ export default function Login() {
 
         {mdUp && (
             <SectionStyle>
-              <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-                Hi, Welcome Back
+              <Typography variant="h4" sx={{ px: 5, mt: 10, mb: 5 }}>
+                Revenue Management System
               </Typography>
-              <img src={require('../../../assets/images/bgImg.jpg')} alt="login"/>
+              <img src={require('../../../assets/images/landing.png')} width={"100%"} height={"60%"} alt="login"/>
             </SectionStyle>
         )}
 

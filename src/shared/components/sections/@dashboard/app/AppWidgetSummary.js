@@ -58,7 +58,7 @@ export default function AppWidgetSummary({isInt=true, title, value, icon,currenc
         <Iconify icon={icon} width={24} height={24} />
       </IconWrapperStyle>
 
-      <Typography variant="h3">{isInt?`${currency}${fCurrency(value)}`:value}</Typography>
+      <Typography variant="h3">{value}</Typography>
 
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         {title}

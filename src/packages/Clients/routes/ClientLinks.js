@@ -3,8 +3,8 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 
 export const ClientLinks=[
     {
-        title: 'Landlords',
-        path: '/admin/dashboard/clients',
+        title: 'Employees',
+        path: '/admin/dashboard/employees',
         icon: getIcon('mdi:users-check'),
     },
 ]

@@ -1,15 +1,14 @@
 import Clients from "../view/Clients";
 import DashboardLayout from "../../../shared/layouts/dashboard";
-import {ProtectedRoute} from "../../../shared/protected";
 import ClientCard from "../components/ClientCard";
 
 export const ClientRoutes =[
     {
         path: '/admin/dashboard',
-        element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
+        element: <DashboardLayout />,
         children: [
             {
-                path:"/admin/dashboard/clients",
+                path:"/admin/dashboard/employees",
                 element: <Clients/>
             },
             {

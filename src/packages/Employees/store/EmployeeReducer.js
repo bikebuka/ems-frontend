@@ -1,28 +1,27 @@
-import {BUSINESS_API_FAILED, BUSINESS_API_REQUEST, BUSINESS_API_SUCCESS} from "./BusinessActionTypes";
+import {CLIENTS_API_FAILED, CLIENTS_API_REQUEST, CLIENTS_API_SUCCESS} from "./EmployeeActionTypes";
 
 let initialState={
     loading: false,
-    businesses:[],
+    clients:[],
     error:{},
     message: "",
     pagination:{}
 };
-//
-export default function BusinessReducer(state=initialState, action) {
+export default function EmployeeReducer(state=initialState, action) {
     const { type, loading, payload,error,processing} = action;
     switch (type) {
-        case BUSINESS_API_REQUEST:
+        case CLIENTS_API_REQUEST:
             return {
                 loading,
                 processing
             }
-        case BUSINESS_API_SUCCESS:
+        case CLIENTS_API_SUCCESS:
             return {
                 loading,
-                businesses: payload.data,
+                customer_accounts: payload.data,
                 pagination:payload
             }
-        case BUSINESS_API_FAILED:
+        case CLIENTS_API_FAILED:
             return {
                 loading,
                 error,

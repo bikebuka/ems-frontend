@@ -1,19 +1,19 @@
 import Clients from "../view/Clients";
 import DashboardLayout from "../../../shared/layouts/dashboard";
-import ClientCard from "../components/ClientCard";
+import EmployeeCard from "../components/EmployeeCard";
 
-export const ClientRoutes =[
+export const EmployeeRoutes =[
     {
         path: '/admin/dashboard',
         element: <DashboardLayout />,
         children: [
             {
-                path:"/admin/dashboard/employees",
+                path:"employees",
                 element: <Clients/>
             },
             {
-                path:"/admin/dashboard/clients/card",
-                element: <ClientCard/>
+                path:"employees/card",
+                element: <EmployeeCard/>
             },
         ]
     },

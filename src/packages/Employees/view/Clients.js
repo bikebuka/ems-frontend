@@ -25,10 +25,10 @@ import {StyledTableCell, StyledTableRow} from "../../../shared/tables/TableStyle
 //
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useEffect, useState} from "react";
+import {getClients} from "../store/EmployeeAction";
 import {formatDate} from "../../../shared/utils/helpers/helpers";
-import {getBusinesses} from "../store/BusinessAction";
 //
-export default function Business() {
+export default function Clients() {
     //table menu
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -48,7 +48,7 @@ export default function Business() {
             page: page+1,
             page_size: rowsPerPage
         }
-        dispatch(getBusinesses(payload))
+        dispatch(getClients(payload))
     },[dispatch,page,rowsPerPage])
     //
     const handleChangePage = (event, newPage) => {
@@ -68,7 +68,7 @@ export default function Business() {
                     <Link underline="hover" color="inherit" href="/">
                         Dashboard
                     </Link>
-                    <Typography color="text.primary">Business</Typography>
+                    <Typography color="text.primary">Clients</Typography>
                 </Breadcrumbs>
                 <Divider />
             </Box>

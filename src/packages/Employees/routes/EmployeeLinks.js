@@ -1,7 +1,7 @@
 import Iconify from "../../../shared/components/Iconify";
 const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 
-export const ClientLinks=[
+export const EmployeeLinks=[
     {
         title: 'Employees',
         path: '/admin/dashboard/employees',

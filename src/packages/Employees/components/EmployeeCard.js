@@ -51,7 +51,7 @@ const defaultValues={
     currency_code:"KES",
 }
 //
-export default function BusinessCard(){
+export default function EmployeeCard(){
     const params=useParams()
     const code=decrypt(params.code)
     const navigate=useNavigate();

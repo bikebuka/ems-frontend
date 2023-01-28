@@ -33,7 +33,7 @@ export default function DashboardAppPage() {
                     <SpinnerLoader/>:
                     <>
                         <Helmet>
-                            <title> Dashboard | Zieteck</title>
+                            <title> Dashboard | EMS</title>
                         </Helmet>
 
                         <Container maxWidth="xl">

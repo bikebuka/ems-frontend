@@ -1,17 +1,13 @@
 // component
 import {DashboardLinks} from "../../../packages/Dashboard/routes/DashboardLinks";
-import {ClientLinks} from "../../../packages/Clients/routes/ClientLinks";
-import {SettingLinks} from "../../../packages/settings/routes/SettingLinks";
-import {BusinessLinks} from "../../../packages/Business/routes/BusinessLinks";
-
 // ----------------------------------------------------------------------
 let navConfig=[];
 //dashboard
 navConfig.push(...DashboardLinks)
 //account links
-navConfig.push(...ClientLinks)
+// navConfig.push(...ClientLinks)
 //applications
-navConfig.push(...BusinessLinks)
+// navConfig.push(...BusinessLinks)
 //settings
 // navConfig.push(...SettingLinks)
 
